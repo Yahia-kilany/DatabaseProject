@@ -12,7 +12,7 @@ def connect_to_db():
     # Fall back to your current hardcoded values if not available
     host = os.environ.get('DB_HOST', 'sql.freedb.tech')
     user = os.environ.get('DB_USER', 'freedb_y_kilany')
-    password = os.environ.get('DB_PASSWORD', '3vM44Fc$WE9pN&M')
+    password = os.environ.get('DB_PASSWORD', 'e*Y6@&XydKsR%%Z')
     database = os.environ.get('DB_NAME', 'freedb_OscarProject')
     
     return mysql.connector.connect(
