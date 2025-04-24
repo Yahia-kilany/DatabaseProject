@@ -1,0 +1,53 @@
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center mb-4">
+        <h2>Welcome to the Oscar Project</h2>
+        <p class="lead">Explore the world of Academy Awards and manage your movie nominations</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">User Features</div>
+            <div class="card-body">
+                <h5 class="card-title">Manage Your Nominations</h5>
+                <p class="card-text">Register, add your own Oscar nominations, and view your entries.</p>
+                <a href="/register" class="btn btn-primary">Register</a>
+                <a href="/add_nomination" class="btn btn-success">Add Nomination</a>
+                <a href="/view_nominations" class="btn btn-info">View Nominations</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">Oscar Stats</div>
+            <div class="card-body">
+                <h5 class="card-title">Explore Oscar Data</h5>
+                <p class="card-text">Discover top movies, production companies, and non-English winners.</p>
+                <a href="/top_movies" class="btn btn-primary">Top Movies</a>
+                <a href="/top_production_companies" class="btn btn-success">Top Studios</a>
+                <a href="/non_english_movies" class="btn btn-info">International Films</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">People & Countries</div>
+            <div class="card-body">
+                <h5 class="card-title">Oscar Winners</h5>
+                <p class="card-text">Look up individual nominees, browse by country, or see the dream team.</p>
+                <a href="/person_nominations" class="btn btn-primary">Person Lookup</a>
+                <a href="/top_countries" class="btn btn-success">Top Countries</a>
+                <a href="/staff_by_country" class="btn btn-info">Staff by Country</a>
+                <a href="/dream_team" class="btn btn-warning mt-2">Dream Team</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

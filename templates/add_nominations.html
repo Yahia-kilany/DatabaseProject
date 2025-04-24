@@ -1,0 +1,63 @@
+<!-- templates/add_nomination.html -->
+{% extends 'base.html' %}
+{% block title %}Add Nomination{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Add User Nomination</h3>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="movie_title" class="form-label">Movie Title</label>
+                <input type="text" class="form-control" id="movie_title" name="movie_title" required>
+            </div>
+            <div class="mb-3">
+                <label for="movie_release_date" class="form-label">Release Date</label>
+                <input type="date" class="form-control" id="movie_release_date" name="movie_release_date" required>
+            </div>
+            <div class="mb-3">
+                <label for="person_name" class="form-label">Staff Full Name</label>
+                <input type="text" class="form-control" id="person_name" name="person_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="person_dob" class="form-label">Staff DOB</label>
+                <input type="date" class="form-control" id="person_dob" name="person_dob" required>
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <input type="text" class="form-control" id="role" name="role" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" id="category" name="category" required>
+                    <option value="">Select Category</option>
+                    <option value="Best Picture">Best Picture</option>
+                    <option value="Best Director">Best Director</option>
+                    <option value="Best Actor">Best Actor</option>
+                    <option value="Best Actress">Best Actress</option>
+                    <option value="Best Supporting Actor">Best Supporting Actor</option>
+                    <option value="Best Supporting Actress">Best Supporting Actress</option>
+                    <option value="Best Original Screenplay">Best Original Screenplay</option>
+                    <option value="Best Adapted Screenplay">Best Adapted Screenplay</option>
+                    <option value="Best Cinematography">Best Cinematography</option>
+                    <option value="Best Film Editing">Best Film Editing</option>
+                    <option value="Best International Feature">Best International Feature</option>
+                    <option value="Best Animated Feature">Best Animated Feature</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="iteration" class="form-label">Award Iteration (Year - 1927)</label>
+                <input type="number" class="form-control" id="iteration" name="iteration" required>
+                <small class="text-muted">For example, enter 73 for the 2000 ceremony (1927 + 73 = 2000)</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Nomination</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Oscar-Winning Non-English Movies{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Oscar-Winning Non-English Movies</h3>
+    </div>
+    <div class="card-body">
+        {% if movies %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Release Date</th>
+                            <th>Language</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for movie in movies %}
+                        <tr>
+                            <td>{{ movie.title }}</td>
+                            <td>{{ movie.release_date }}</td>
+                            <td>{{ movie.language }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>No Oscar-winning non-English movies found.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

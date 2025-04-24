@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Oscar Dream Team{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Oscar Dream Team - Living Winners with Most Awards</h3>
+    </div>
+    <div class="card-body">
+        {% if team %}
+            <div class="row mb-4">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-header bg-gold text-white">
+                            <h4 class="mb-0 text-center">Dream Team Roster</h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            {% for role, name in team.items() %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>{{ role }}</strong>
+                                <span>{{ name }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p>Unable to generate dream team.</p>
+        {% endif %}
+        <div class="text-center">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .bg-gold {
+        background-color: #d4af37;
+    }
+</style>
+{% endblock %}

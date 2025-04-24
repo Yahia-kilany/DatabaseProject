@@ -1,0 +1,46 @@
+<!-- templates/top_movies.html -->
+{% extends 'base.html' %}
+{% block title %}Top Nominated Movies{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Top Nominated Movies by Users</h3>
+    </div>
+    <div class="card-body">
+        {% if movies %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Movie Title</th>
+                            <th>Release Date</th>
+                            <th>Category</th>
+                            <th>Year</th>
+                            <th>Nomination Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for movie in movies %}
+                        <tr>
+                            <td>{{ movie.movie_title }}</td>
+                            <td>{{ movie.movie_release_date }}</td>
+                            <td>{{ movie.category }}</td>
+                            <td>{{ movie.year }}</td>
+                            <td>{{ movie.nomination_count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>No nominations found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+

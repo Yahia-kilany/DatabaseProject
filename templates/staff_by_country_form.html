@@ -1,0 +1,20 @@
+<!-- templates/staff_by_country_form.html -->
+{% extends 'base.html' %}
+{% block title %}Staff by Country{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Nominated Staff by Country</h3>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="country" name="country" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

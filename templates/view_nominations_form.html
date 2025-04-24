@@ -1,0 +1,22 @@
+
+
+<!-- templates/view_nominations_form.html -->
+{% extends 'base.html' %}
+{% block title %}View Nominations{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>View User Nominations</h3>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <button type="submit" class="btn btn-primary">View Nominations</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Top Production Companies{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Top 5 Production Companies by Oscar Wins</h3>
+    </div>
+    <div class="card-body">
+        {% if companies %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Production Company</th>
+                            <th>Oscar Wins</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for company in companies %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ company.production_company }}</td>
+                            <td>{{ company.oscar_wins }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>No production companies found.</p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back to Home</a>
+    </div>
+</div>
+{% endblock %}

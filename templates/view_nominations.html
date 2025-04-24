@@ -1,0 +1,47 @@
+<!-- templates/view_nominations.html -->
+{% extends 'base.html' %}
+{% block title %}User Nominations{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Nominations for {{ username }}</h3>
+    </div>
+    <div class="card-body">
+        {% if nominations %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Movie Title</th>
+                            <th>Release Date</th>
+                            <th>Person Name</th>
+                            <th>DOB</th>
+                            <th>Role</th>
+                            <th>Category</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for nomination in nominations %}
+                        <tr>
+                            <td>{{ nomination.movie_title }}</td>
+                            <td>{{ nomination.movie_release_date }}</td>
+                            <td>{{ nomination.person_name }}</td>
+                            <td>{{ nomination.person_dob }}</td>
+                            <td>{{ nomination.role }}</td>
+                            <td>{{ nomination.category }}</td>
+                            <td>{{ nomination.year }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>No nominations found for this user.</p>
+        {% endif %}
+        <a href="/view_nominations" class="btn btn-secondary">Back</a>
+    </div>
+</div>
+{% endblock %}
+

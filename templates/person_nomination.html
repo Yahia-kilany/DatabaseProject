@@ -1,0 +1,24 @@
+<!-- templates/person_nominations_form.html -->
+{% extends 'base.html' %}
+{% block title %}Person Nominations{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Nominations and Oscars for a Person</h3>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            <div class="mb-3">
+                <label for="person_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="person_name" name="person_name" required>
+            </div>
+            <div class="mb-3">
+                <label for="person_dob" class="form-label">Date of Birth (YYYY-MM-DD)</label>
+                <input type="date" class="form-control" id="person_dob" name="person_dob" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

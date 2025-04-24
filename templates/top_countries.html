@@ -1,0 +1,35 @@
+<!-- templates/top_countries.html -->
+{% extends 'base.html' %}
+{% block title %}Top Countries{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h3>Top 5 Countries of Best Actor Winners</h3>
+    </div>
+    <div class="card-body">
+        {% if countries %}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Win Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for country in countries %}
+                        <tr>
+                            <td>{{ country.country }}</td>
+                            <td>{{ country.win_count }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <p>No Best Actor winners found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
