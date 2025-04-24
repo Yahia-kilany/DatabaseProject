@@ -5,7 +5,7 @@ def connect_to_db():
     return mysql.connector.connect(
         host="sql.freedb.tech",
         user="freedb_y_kilany",
-        password="P7QNvQ?sHy$z837",
+        password="3vM44Fc$WE9pN&M",
         database="freedb_OscarProject"
     )
 
