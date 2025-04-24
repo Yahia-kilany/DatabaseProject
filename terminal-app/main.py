@@ -223,7 +223,7 @@ def non_english_oscar_movies(cursor):
         SELECT DISTINCT m.title, m.release_date, m.language
         FROM movie m
         JOIN nomination n ON m.title = n.movie_title AND m.release_date = n.movie_release_date
-        WHERE m.language != 'English' AND n.won = TRUE
+        WHERE m.category='Best International Feature Film' AND n.won = TRUE
         ORDER BY m.release_date
     """)
     results = cursor.fetchall()
