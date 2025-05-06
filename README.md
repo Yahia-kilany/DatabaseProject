@@ -1,52 +1,53 @@
-# Oscars Database Project
+# 🎬 Oscars Database Project
 
-This project is a comprehensive database system for the Academy Awards (Oscars), designed as a university assignment. It covers data collection, normalization, database design, and a terminal application for Oscar-related queries.
+This project is a comprehensive database system for the Academy Awards (Oscars), designed as a university assignment. It includes end-to-end data engineering—scraping, cleaning, normalization, relational design—and full-featured interfaces for querying and reporting via both terminal and web applications.
 
----
+## 📽️ Live Demo & Deployment
+- 📺 [Video Walkthrough: Watch the demo on Google Drive]([#](https://drive.google.com/file/d/1agD2rOEuXquY5sSEeV-KhAegqjuWVBjq/view?usp=sharing))
+- 🌐 [Live Web App: Try it out on Railway]((https://oscar-app-production.up.railway.app))
 
-## Project Overview
-
+## 📌 Project Overview
 - **Database**: Stores detailed Oscar data from the 10th to the 96th iteration, including movies, people, awards, nominations, and user interactions.
 - **Data Scraping**: Automatically scrapes Oscar data from Wikipedia for the specified years.
-- **Data Normalization**: Cleans and standardizes raw data (dates, country names, etc.) for database consistency.
-- **Terminal Application**: Allows users to interact with the database and execute complex queries from the command line.
-- **Web Application (Optional)**: Flask-based interface for the same queries (see `app.py`).
+- **Data Normalization**: Cleans and standardizes raw data (dates, country names, etc.) for consistency.
+- **Terminal Application**: A CLI-based interface to run queries and view results.
+- **Web Application**: Flask-based app with forms and reports for all major functionalities.
 
----
+## ✨ Features
+- 🔐 **User Registration**: Register users with name, email, and demographics.
+- 📝 **User Nominations**: Submit custom nominations for movies and people.
+- 👁️ **View Nominations**: View all nominations made by a user.
+- 🎞️ **Top Nominated Movies**: Query top-nominated movies by year and category.
+- 🧑‍🎤 **Person Statistics**: View total nominations and Oscar wins for staff (actors, directors, singers).
+- 🌍 **Top Actor Birth Countries**: List the top 5 countries by number of Best Actor Oscar wins.
+- 📍 **Staff by Country**: Show nominated staff by country with categories and stats.
+- 🏆 **Dream Team**: Assemble the best ever living Oscar-winning cast & crew.
+- 🏢 **Top Production Companies**: List top companies by Oscar wins.
+- 🗣️ **Non-English Oscar Winners**: List all non-English Oscar-winning films with details.
 
-## Features
+## 🗄️ Database Schema
+| Table              | Key Columns & Relationships                                                                 |
+|--------------------|----------------------------------------------------------------------------------------------|
+| **Movie**          | title (PK), releaseDate, language, runtime, productionCompany                               |
+| **Person**         | fullName (PK), DOB (PK), COB (Country of Birth), DOD (Date of Death)                         |
+| **User**           | username (PK), email, gender, birthdate, country                                            |
+| **Award**          | category (PK), iteration (PK), year                                                          |
+| **Nomination**     | roleNominationID (PK), title (FK), releaseDate (FK), fullName (FK), DOB (FK), role, category, iteration, won |
+| **UserNomination** | userRoleNomination (PK), username (FK), title (FK), releaseDate (FK), fullName (FK), DOB (FK), role, category, iteration |
 
-- **User Registration**: Register new users with personal information.
-- **User Nominations**: Add nominations for staff members (actors, directors, etc.) for specific movies.
-- **View Nominations**: See all nominations made by a user.
-- **Top Nominated Movies**: View the most-nominated movies by users, filtered by category and year.
-- **Person Statistics**: See total nominations and Oscars for any director, actor, or singer.
-- **Top Actor Birth Countries**: List the top 5 countries by number of Best Actor Oscar wins.
-- **Staff by Country**: Show all nominated staff from a given country, with categories, nomination counts, and Oscar wins.
-- **Dream Team**: Automatically assemble a hypothetical "best ever" movie cast and crew from living Oscar winners.
-- **Top Production Companies**: List the top 5 companies by number of Oscars won.
-- **Non-English Oscar Winners**: List all non-English movies that won an Oscar, with year and details.
+## 📄 See:
+- **SQL Schema**: `/docs/database/OscarProject.sql`
+- **ERD**: `/docs/database/ERD.pdf`
+- **Relational Model**: `/docs/database/Project_Database Updated Relational`
+- **Legacy Schema**: `/docs/database/old/`
 
----
-
-## Database Schema
-
-The normalized schema includes:
-
-| Table          | Key Columns & Relationships                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------|
-| Movie          | title (PK), releaseDate, language, runtime, productionCompany                                                  |
-| Person         | fullName (PK), DOB (PK), COB (Country of Birth), DOD (Date of Death)                                          |
-| User           | username (PK), email, gender, birthdate, country                                                              |
-| Award          | category (PK), iteration (PK), year                                                                           |
-| Nomination     | roleNominationID (PK), title (FK), releaseDate (FK), fullName (FK), DOB (FK), role, category, iteration, won  |
-| UserNomination | userRoleNomination (PK), username (FK), title (FK), releaseDate (FK), fullName (FK), DOB (FK), role, category, iteration |
-
----
-- **See the Schema at `/docs/database/OscarProject.sql`**
-- **ERD at `/docs/database/ERD.pdf`**
-- **Relational Datamodel at `/docs/database/Project_Database Updated Relational`**
-- **Additionally, there is an older attempt at the database schema stored in the folder:`docs/database/old/`**
+## ⚙️ How It Works
+- **Scraping**: `data/Scrapper.ipynb` scrapes Oscar data from Wikipedia.
+- **Normalization**: `data/Data_cleanup.ipynb` standardizes names, dates, and countries.
+- **Database Setup**: Schema in `/docs/database/OscarProject.sql`, with a dump in `/docs/freedb_OscarProject`.
+- **Applications**:
+  - **Terminal**: `terminal-app/main.py`
+  - **Web (Flask)**: `app.py`
 ## How It Works
 
 1. **Scraping**: `data/scrapper.ipynb` collects Oscar data from Wikipedia for the required years.
@@ -56,7 +57,7 @@ The normalized schema includes:
 
 ---
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
 1. **Clone the repository** and install dependencies:
 `pip install -r requirements.txt`
@@ -68,21 +69,20 @@ The normalized schema includes:
 Or, **run the web app**:
 `flask run`
 
-text
 (or use `gunicorn` for production as configured in `render.yaml`)
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - Python (Flask, pandas, mysql-connector-python)
 - MySQL/MariaDB
-- Data scraping and cleaning scripts
-- SQL for relational database design
+- Jupyter Notebooks for data processing
+- SQL for relational database design and queries
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 ```
 .
 ├── data/                                 # Data scraping and cleanup notebooks
@@ -96,9 +96,9 @@ text
 │       │   ├── Project_Database Updated Rel... # Relational Model
 │       │   └── Update ERD.pdf    # Entity-Relationship Diagram (updated)
 │       └── dump/                 
-│       │   ├──freedb_OscarProject.sql # dymp of the database
+│       │   ├──freedb_OscarProject.sql # dump of the database
 |
-├── templates/                    # HTML templates For the falsk application at (app.py)
+├── templates/                    # HTML templates For the flask application at (app.py)
 │   ├── add_nomination.html              # Form to add user nominations
 │   ├── base.html                        # Base template for layout inheritance
 │   ├── dream_team.html                  # Page showing a dream team (custom analysis)
@@ -127,7 +127,10 @@ text
 ├── runtime.txt                  # Runtime environment (e.g., Python version for deployment)
 ```
 ---
+## 🧑‍🏫 Credits
+This project was developed as part of the CSCE2501 – Fundamentals of Database Systems course under the instruction of Dr. Hossam Sharara.
+It demonstrates full-stack data engineering skills including data scraping, normalization, relational database design, and both terminal and web application development using real-world data from the Academy Awards.
+---
+## 📜 License
+This project is for educational use. If you wish to reuse or extend it, please contact the author or check with the university guidelines.
 
-## Credits
-
-Developed as a university project for  to demonstrate full-stack data engineering, normalization, and application development with real-world data.
